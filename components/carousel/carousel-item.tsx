@@ -1,20 +1,23 @@
 import React from "react";
 import ReactStars from "react-stars";
+import type { IProductData } from "src/types";
 
-const CarouselItem: React.FC = () => {
+interface IProps {
+  product: IProductData;
+}
+
+const CarouselItem: React.FC<IProps> = ({ product }) => {
   return (
     <div className="p-2 mx-auto cursor-pointer" style={{ maxWidth: 200 }}>
       <div>
-        <img src="/img/200x200.png" width={200} height={200} alt="Produkt" />
+        <img src={product.img} width={200} height={200} alt={product.name} />
       </div>
-      <h2 className="font-bold m-0 pt-2">Název zboží</h2>
-      <ReactStars value={3} edit={false} size={25} />
-      <p className="line-clamp-2 m-0 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat
-        tempus augue id ornare. Duis sit amet magna consectetur, facilisis neque
-        quis, luctus elit.
+      <h2 className="font-bold m-0 pt-2 line-clamp-2" title={product.name}>{product.name}</h2>
+      <ReactStars value={product.rating} edit={false} size={25} />
+      <p className="line-clamp-2 m-0 text-sm" title={product.spec}>
+        {product.spec}
       </p>
-      <p className="text-green-600 font-medium">3 453 Kč</p>
+      <p className="text-green-600 font-medium">{product.price}</p>
     </div>
   );
 };

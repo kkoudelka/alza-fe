@@ -1,13 +1,17 @@
 import React from "react";
+import type { IProductData } from "src/types";
 import { ProductItem } from ".";
 
-const ProductContainer: React.FC = () => {
+interface IProps {
+  products: IProductData[];
+}
+
+const ProductContainer: React.FC<IProps> = ({ products }) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4">
-      {Array(8)
-        .fill({})
+      {products
         .map((x, i) => (
-          <ProductItem key={i} />
+          <ProductItem product={x} key={i} />
         ))}
     </div>
   );

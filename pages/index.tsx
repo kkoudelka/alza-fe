@@ -23,9 +23,9 @@ const Home: NextPage<IProps> = ({ data }) => {
       <h1 className="text-2xl font-bold">Notebooky</h1>
       <Categories />
       <h2 className="mt-3 text-lg font-bold">Nejprodávanější</h2>
-      <CarouselContainer />
+      <CarouselContainer products={data?.data ?? []} />
       <Tabs />
-      <ProductContainer />
+      <ProductContainer products={data?.data ?? []} />
     </div>
   );
 };
@@ -51,10 +51,10 @@ export const getServerSideProps: GetServerSideProps<IProps> = async (
             wearType: 0,
             orderBy: 0,
             page: 1,
-            params: {
+            params: [{
               tId: 0,
               v: [],
-            },
+            }],
             producers: [],
             sendPrices: true,
             type: "action",

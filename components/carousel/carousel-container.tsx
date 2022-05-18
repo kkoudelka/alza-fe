@@ -3,8 +3,13 @@ import Carousel from "react-multi-carousel";
 import { CarouselItem } from ".";
 import responsiveCarousel from "./responsive-props";
 import "react-multi-carousel/lib/styles.css";
+import type { IProductData } from "src/types";
 
-const CarouselContainer: React.FC = () => {
+interface IProps {
+  products: IProductData[];
+}
+
+const CarouselContainer: React.FC<IProps> = ({ products }) => {
   return (
     <div>
       <Carousel
@@ -14,11 +19,9 @@ const CarouselContainer: React.FC = () => {
         autoPlay={false}
         className="mx-7"
       >
-        {Array(10)
-          .fill({})
-          .map((x, i) => (
-            <CarouselItem key={i} />
-          ))}
+        {products.map((x, i) => (
+          <CarouselItem product={x} key={i} />
+        ))}
       </Carousel>
     </div>
   );
