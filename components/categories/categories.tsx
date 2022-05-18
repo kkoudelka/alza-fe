@@ -17,7 +17,7 @@ const cats = [
 
 const Categories: React.FC = () => {
   return (
-    <div className="grid grid-cols-5">
+    <div className="grid grid-cols-2 md:grid-cols-5">
       {cats.map((cat, i) => (
         <div key={i} className="p-2 border-2 m-1 bg-gray-100">
           {cat}

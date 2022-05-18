@@ -14,7 +14,7 @@ interface IProps {
 
 const Home: NextPage<IProps> = ({ data }) => {
   return (
-    <div className="container mx-auto py-2">
+    <div className="container mx-auto py-2 md:px-0 px-2">
       {data && data.err > 0 && (
         <AlertDanger>
           {data.msg} (Error code: {data.err})

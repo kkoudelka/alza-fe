@@ -7,12 +7,12 @@ const ProductItem: React.FC = () => {
   return (
     <div className="p-2 my-3 mx-auto justify-center justify-items-center cursor-pointer">
       <h2 className="font-bold">Název zboží</h2>
-      <p className="line-clamp-2 text-sm" style={{ maxWidth: 200 }}>
+      <p className="line-clamp-2 text-sm max-w-[180px] md:max-w-[200px]" >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat
         tempus augue id ornare. Duis sit amet magna consectetur, facilisis neque
         quis, luctus elit.
       </p>
-      <div className="relative" style={{ width: 200, height: 200 }}>
+      <div className="relative w-[180px] md:w-[200px]" style={{ height: 200 }}>
         <div className="absolute">
           <img
             src="/img/200x200.png"
